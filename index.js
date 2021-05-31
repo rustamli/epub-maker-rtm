@@ -7,8 +7,7 @@ fastify.register(require('fastify-static'), {
 });
 
 fastify.get('/generate', async function(request, reply) {
-  await gen.run();
-  reply.redirect('/the-road-to-mecca.epub');
+  gen.run(reply);
 });
 
 fastify.listen(3000, function(err, address) {

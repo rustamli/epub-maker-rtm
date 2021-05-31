@@ -54,7 +54,7 @@ async function processChapter(chapter) {
 }
 
 module.exports = {
-  async run() {
+  async run(reply) {
     const content = await Promise.all(chapters.map(processChapter));
 
     const option = {
@@ -64,5 +64,9 @@ module.exports = {
     };
 
     new Epub(option, './public/the-road-to-mecca.epub');
+
+    if (reply) {
+      reply.redirect('/the-road-to-mecca.epub');
+    }
   }
 };
