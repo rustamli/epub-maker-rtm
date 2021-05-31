@@ -1,13 +1,19 @@
 const fastify = require('fastify')();
+const path = require('path');
 const gen = require('./epub-generator');
 
-fastify.get('/generate', function(request, reply) {
+// fastify.register(require('fastify-static'), {
+//   root: path.join(__dirname, 'public')
+// });
+
+fastify.get('/', function(request, reply) {
   gen.run();
   reply.send({ status: 'done' });
 });
 
-fastify.get('/', function(request, reply) {
-  reply.send('Hello');
+fastify.get('/generate', function(request, reply) {
+  gen.run();
+  reply.send({ status: 'done' });
 });
 
 fastify.listen(3000, function(err, address) {
