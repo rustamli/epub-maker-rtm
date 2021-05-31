@@ -10,7 +10,7 @@ fastify.get('/generate', async function(request, reply) {
   gen.run(reply);
 });
 
-fastify.listen(80, function(err, address) {
+fastify.listen(8080, function(err, address) {
   if (err) {
     fastify.log.error(err);
     process.exit(1);
