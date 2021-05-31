@@ -63,10 +63,10 @@ module.exports = {
       content: content
     };
 
-    new Epub(option, './public/the-road-to-mecca.epub');
-
-    if (reply) {
-      reply.redirect('/the-road-to-mecca.epub');
-    }
+    new Epub(option, './public/the-road-to-mecca.epub').promise.then(() => {
+      if (reply) {
+        reply.redirect('/the-road-to-mecca.epub');
+      }
+    });
   }
 };
