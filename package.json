@@ -2,6 +2,7 @@
   "dependencies": {
     "cheerio": "^1.0.0-rc.9",
     "epub-gen": "^0.1.0",
+    "fastify": "^3.17.0",
     "node-fetch": "^2.6.1"
   }
 }
